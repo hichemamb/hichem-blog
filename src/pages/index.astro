@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const particleCount = 100;
 ---
 
 <!doctype html>
@@ -13,39 +15,56 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		<main class="m-5">
+			<div class="relative overflow-hidden border-4 border-[#f4b450] bg-black bg-opacity-50 w-full h-full flex flex-col items-center justify-center text-white p-12 md:p-16">
+				{Array.from({ length: particleCount }).map(() => (
+				<div
+				  class="particle"
+				  style={{
+					'--x': `${Math.random() * 500 - 250}px`, // Direction aléatoire sur l'axe X
+					'--y': `${Math.random() * 500 - 250}px`, // Direction aléatoire sur l'axe Y
+					'--startX': `${Math.random() * 100}%`, // Position initiale aléatoire sur l'axe X
+					'--startY': `${Math.random() * 100}%`, // Position initiale aléatoire sur l'axe Y
+					animationDelay: `${Math.random() * 4}s`, // Délai d'animation aléatoire
+				  }}
+				></div>
+			  ))}
+			  <h1 class="text-5xl text-[#f4b450] font-extrabold mb-6 md:mb-8">Salut, je suis Hichem</h1>
+			  <p class="text-xl max-w-3xl mx-auto mb-6 md:mb-8 px-4 md:px-6">Développeur front-end passionné par la stack JavaScript. J'aime partager mes tips et connaissances en rendant des concepts flous aussi limpides qu'un bon vieux "console.log()".</p>
+			  <p class="text-lg max-w-2xl mx-auto mb-8 opacity-75 px-4 md:px-6">
+				Ça fait plus de 6 ans que je m’amuse avec le code, et JavaScript, c’est mon jouet préféré.
+		  
+				Ma stack "pro" principale ? Angular et TypeScript, sinon je suis un peu comme un enfant dans un magasin de bonbons quand il s'agit de JavaScript, j'adore faire joujou avec tout ce qui me tombe sous la main.
+				
+				Le DevOps m’attire de plus en plus, j’aime bien mettre en place des pipelines, gérer les déploiements, envoyer des console.log en prod juste pour voir qui va les repérer en premier \(^_^)/. 
+			  </p>
+			</div>
+		  </main>
 		<Footer />
+
+		<style>
+			.particle {
+				position: absolute;
+				width: 5px;
+				height: 5px;
+				background-color: white;
+				border-radius: 50%;
+				opacity: 0;
+				animation: moveParticle 4s infinite ease-in-out;
+				left: var(--startX);
+				top: var(--startY);
+			}
+
+			@keyframes moveParticle {
+				0% {
+					transform: translate(0, 0);
+					opacity: 1;
+				}
+				100% {
+					transform: translate(var(--x), var(--y));
+					opacity: 0;
+				}
+			}
+		</style>
 	</body>
 </html>
