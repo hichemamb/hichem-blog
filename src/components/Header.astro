@@ -2,18 +2,11 @@
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class="bg-[#F4B450] shadow-md flex justify-center">
-    <nav class="flex items-center justify-center p-4">
-        <div class="flex items-center justify-center space-x-8">
-            <div class="logo-container">
-                <a href="/" class="no-underline">
-                    <img src="hichoox-logo.png" alt="Logo" class="rounded-full w-15 h-15" />
-                </a>
-            </div>
-            <div class="internal-links flex">
-                <HeaderLink href="/" class="py-4 px-2 text-black">Qui suis-je ?</HeaderLink>
-                <HeaderLink href="/blog" class="py-4 px-2 text-black">Blog</HeaderLink>
-            </div>
+<header>
+    <nav class="bg-[#252526] text-gray-300 flex items-center px-4 border-b border-[#333]">
+        <div class="flex space-x-1">
+            <HeaderLink href="/">main.ts</HeaderLink>
+            <HeaderLink href="/blog">blog.ts</HeaderLink>
         </div>
-    </nav>
+      </nav>
 </header>

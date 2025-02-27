@@ -18,3 +18,32 @@
 html {
 	overflow-y: scroll;
 }
+
+body {
+	background: #1e1e1e;
+	color: #d4d4d4;
+	font-family: 'Fira Code', monospace;
+}
+.nav-link {
+	color: #858585;
+	transition: color 0.3s;
+	padding: 0.5rem 1rem;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.nav-link:hover, .nav-link.active {
+	background: #252526;
+	color: #ffffff;
+}
+.highlight {
+	color: #569cd6;
+}
+.code {
+	color: #ce9178;
+}
+.function {
+	color: #dcdcaa;
+}
+.variable {
+	color: #9cdcfe;
+}

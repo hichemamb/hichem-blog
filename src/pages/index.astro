@@ -4,8 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
-const particleCount = 100;
 ---
 
 <!doctype html>
@@ -13,58 +11,26 @@ const particleCount = 100;
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
-		<main class="m-5">
-			<div class="relative overflow-hidden border-4 border-[#f4b450] bg-black bg-opacity-50 w-full h-full flex flex-col items-center justify-center text-white p-12 md:p-16">
-				{Array.from({ length: particleCount }).map(() => (
-				<div
-				  class="particle"
-				  style={{
-					'--x': `${Math.random() * 500 - 250}px`, // Direction aléatoire sur l'axe X
-					'--y': `${Math.random() * 500 - 250}px`, // Direction aléatoire sur l'axe Y
-					'--startX': `${Math.random() * 100}%`, // Position initiale aléatoire sur l'axe X
-					'--startY': `${Math.random() * 100}%`, // Position initiale aléatoire sur l'axe Y
-					animationDelay: `${Math.random() * 4}s`, // Délai d'animation aléatoire
-				  }}
-				></div>
-			  ))}
-			  <h1 class="text-5xl text-[#f4b450] font-extrabold mb-6 md:mb-8">Salut, je suis Hichem</h1>
-			  <p class="text-xl max-w-3xl mx-auto mb-6 md:mb-8 px-4 md:px-6">Développeur front-end passionné par la stack JavaScript. J'aime partager mes tips et connaissances en rendant des concepts flous aussi limpides qu'un bon vieux "console.log()".</p>
-			  <p class="text-lg max-w-2xl mx-auto mb-8 opacity-75 px-4 md:px-6">
-				Ça fait plus de 6 ans que je m’amuse avec le code, et JavaScript, c’est mon jouet préféré.
-		  
-				Ma stack "pro" principale ? Angular et TypeScript, sinon je suis un peu comme un enfant dans un magasin de bonbons quand il s'agit de JavaScript, j'adore faire joujou avec tout ce qui me tombe sous la main.
-				
-				Le DevOps m’attire de plus en plus, j’aime bien mettre en place des pipelines, gérer les déploiements, envoyer des console.log en prod juste pour voir qui va les repérer en premier \(^_^)/. 
-			  </p>
-			</div>
-		  </main>
-		<Footer />
-
-		<style>
-			.particle {
-				position: absolute;
-				width: 5px;
-				height: 5px;
-				background-color: white;
-				border-radius: 50%;
-				opacity: 0;
-				animation: moveParticle 4s infinite ease-in-out;
-				left: var(--startX);
-				top: var(--startY);
-			}
-
-			@keyframes moveParticle {
-				0% {
-					transform: translate(0, 0);
-					opacity: 1;
-				}
-				100% {
-					transform: translate(var(--x), var(--y));
-					opacity: 0;
-				}
-			}
-		</style>
+	<body class="flex">
+		<aside class=" bg-[#252526] p-2 flex flex-col items-center border-r border-[#333] h-screen">
+			<a href="#" class="p-2 hover:bg-[#333] rounded">
+				<img src="hichoox-logo.png" alt="Logo" class="rounded-full w-10 h-10" />
+			</a>
+		</aside>
+		<div class="flex-1 flex flex-col">
+			<Header />
+			<main class="flex flex-col items-start justify-center h-full px-20">
+				<h1 class="text-xl text-gray-500">Hi all. I am</h1>
+				<h2 class="text-6xl font-bold text-white">Hichem</h2>
+				<h3 class="text-2xl text-highlight">> Front-end developer</h3>
+				<div class="mt-6 text-left text-sm text-gray-400 max-w-md font-mono">
+					<p><span class="highlight">const</span> <span class="variable">telephoneNum</span> = <span class="code">"00000000000"</span>;</p>
+					<p><span class="highlight">const</span> <span class="variable">email</span> = <span class="code">"hichemamb@gmail.com"</span>;</p>
+					<p><span class="highlight">const</span> <span class="variable">githubLink</span> = <a href="https://github.com/hichemamb" class="code">"https://github.com/hichemamb"</a>;</p>
+					<p><span class="highlight">const</span> <span class="variable">linkedinPage</span> = <a href="https://www.linkedin.com/hichem" class="code">"https://www.linkedin.com/hichem"</a>;</p>
+				</div>
+			</main>
+		</div>
+		<!-- <Footer /> -->
 	</body>
 </html>
